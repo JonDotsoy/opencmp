@@ -63,7 +63,7 @@ import { CookieDialogSettings, CookiesManager } from "@/components/ui/cookies-ma
   </button>
 </CookieDialogSettings>
 `,
-}
+};
 
 export function SettingsCodeTabs() {
   return (
