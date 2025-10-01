@@ -4,6 +4,10 @@
 
 OpenCMP Cookies Manager is a modern and comprehensive cookie consent management solution that simplifies the implementation of a CMP (Consent Management Platform) on your website. This tool is designed to integrate seamlessly with Google Tag Manager, providing users with an intuitive and customizable interface to configure their consent preferences.
 
+## 🎯 Live Demo
+
+**[👉 View Live Demo](https://jondotsoy.github.io/opencmp/)**
+
 ## 🌟 Key Features
 
 - **Direct Google Tag Manager integration**: Automatic consent event configuration
