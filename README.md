@@ -33,19 +33,19 @@ Instala OpenCMP Cookies Manager en tu proyecto usando shadcn:
 ### NPX
 
 ```bash
-npx shadcn@latest add https://jondotsoy.github.io/cookies-manager/cookies-manager.json
+npx shadcn@latest add https://jondotsoy.github.io/opencmp/cookies-manager.json
 ```
 
 ### PNPM
 
 ```bash
-pnpm dlx shadcn@latest add https://jondotsoy.github.io/cookies-manager/cookies-manager.json
+pnpm dlx shadcn@latest add https://jondotsoy.github.io/opencmp/cookies-manager.json
 ```
 
 ### Bun
 
 ```bash
-bunx shadcn@latest add https://jondotsoy.github.io/cookies-manager/cookies-manager.json
+bunx shadcn@latest add https://jondotsoy.github.io/opencmp/cookies-manager.json
 ```
 
 ## 🛠️ Configuración
