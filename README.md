@@ -90,6 +90,62 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 }
 ```
 
+## ⚙️ Botón de preferencias
+
+Además del componente principal `CookiesManager`, también puedes implementar un botón de preferencias que permita a los usuarios acceder a la configuración de cookies en cualquier momento después de haber dado su consentimiento inicial.
+
+### Implementación del botón
+
+```tsx
+import { CookieDialogSettings } from "@/components/ui/cookies-manager";
+
+function PreferencesButton() {
+  return (
+    <CookieDialogSettings>
+      <button className="text-sm text-blue-600 hover:text-blue-800 underline">
+        Preferencias de cookies
+      </button>
+    </CookieDialogSettings>
+  );
+}
+```
+
+### Uso en diferentes frameworks
+
+**En Astro.build:**
+
+```astro
+---
+import { CookieDialogSettings } from "@/components/ui/cookies-manager";
+---
+
+<CookieDialogSettings client:only="react">
+  <button class="text-sm text-blue-600 hover:text-blue-800 underline">
+    Preferencias de cookies
+  </button>
+</CookieDialogSettings>
+```
+
+**En Next.js:**
+
+```tsx
+import { CookieDialogSettings } from "@/components/ui/cookies-manager";
+
+export default function Footer() {
+  return (
+    <footer>
+      <CookieDialogSettings>
+        <button className="text-sm text-blue-600 hover:text-blue-800 underline">
+          Preferencias de cookies
+        </button>
+      </CookieDialogSettings>
+    </footer>
+  );
+}
+```
+
+El componente `CookieDialogSettings` actúa como un wrapper que permite abrir el diálogo de configuración de cookies cuando se hace clic en el elemento hijo. Puedes personalizar completamente el estilo y la apariencia del botón según el diseño de tu sitio web.
+
 ## 📋 Requisitos
 
 - React 18+
