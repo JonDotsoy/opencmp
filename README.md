@@ -1,34 +1,34 @@
 # OpenCMP Cookies Manager
 
-![snapshot con la demostración del componente](image.png)
+![component demonstration snapshot](docs/assets/component-demo-snapshot.png)
 
-OpenCMP Cookies Manager es una solución moderna y completa para la gestión de consentimiento de cookies que simplifica la implementación de un CMP (Consent Management Platform) en tu sitio web. Esta herramienta está diseñada para integrarse perfectamente con Google Tag Manager, proporcionando a los usuarios una interfaz intuitiva y personalizable para configurar sus preferencias de consentimiento.
+OpenCMP Cookies Manager is a modern and comprehensive cookie consent management solution that simplifies the implementation of a CMP (Consent Management Platform) on your website. This tool is designed to integrate seamlessly with Google Tag Manager, providing users with an intuitive and customizable interface to configure their consent preferences.
 
-## 🌟 Características principales
+## 🌟 Key Features
 
-- **Integración directa con Google Tag Manager**: Configuración automática de eventos de consentimiento
-- **Cumplimiento normativo**: Diseñado para cumplir con GDPR (Reglamento General de Protección de Datos de la UE) y CCPA (California Consumer Privacy Act)
-- **Tecnología moderna**: Construido con React, Tailwind CSS y shadcn/ui
-- **Fácil instalación**: Instalación sencilla mediante shadcn CLI
-- **Control total**: Código fuente completamente personalizable
-- **Responsive**: Diseño adaptativo para todos los dispositivos
-- **Accesible**: Cumple con estándares de accesibilidad web
+- **Direct Google Tag Manager integration**: Automatic consent event configuration
+- **Regulatory compliance**: Designed to comply with GDPR (EU General Data Protection Regulation) and CCPA (California Consumer Privacy Act)
+- **Modern technology**: Built with React, Tailwind CSS and shadcn/ui
+- **Easy installation**: Simple installation via shadcn CLI
+- **Full control**: Completely customizable source code
+- **Responsive**: Adaptive design for all devices
+- **Accessible**: Meets web accessibility standards
 
-## 🚀 ¿Por qué OpenCMP?
+## 🚀 Why OpenCMP?
 
-En el panorama digital actual, el cumplimiento de las regulaciones de privacidad es fundamental. OpenCMP Cookies Manager te permite:
+In today's digital landscape, compliance with privacy regulations is essential. OpenCMP Cookies Manager allows you to:
 
-- Cumplir con las regulaciones **GDPR** de la Unión Europea
-- Adherirse a la **CCPA** de California
-- Proporcionar transparencia total sobre el uso de cookies
-- Dar control completo a los usuarios sobre sus datos
-- Mantener la experiencia de usuario sin comprometer el cumplimiento legal
+- Comply with **GDPR** regulations from the European Union
+- Adhere to California's **CCPA**
+- Provide complete transparency about cookie usage
+- Give users full control over their data
+- Maintain user experience without compromising legal compliance
 
-La plataforma facilita la implementación técnica mientras garantiza que tu sitio web cumple con las normativas internacionales de protección de datos más estrictas.
+The platform facilitates technical implementation while ensuring your website complies with the strictest international data protection regulations.
 
-## 📦 Instalación rápida
+## 📦 Quick Installation
 
-Instala OpenCMP Cookies Manager en tu proyecto usando shadcn:
+Install OpenCMP Cookies Manager in your project using shadcn:
 
 ### NPX
 
@@ -48,13 +48,13 @@ pnpm dlx shadcn@latest add https://jondotsoy.github.io/opencmp/cookies-manager.j
 bunx shadcn@latest add https://jondotsoy.github.io/opencmp/cookies-manager.json
 ```
 
-## 🛠️ Configuración
+## 🛠️ Configuration
 
-Una vez instalado, el componente se integra automáticamente con tu configuración existente de Tailwind CSS y puede ser personalizado según las necesidades específicas de tu proyecto.
+Once installed, the component automatically integrates with your existing Tailwind CSS configuration and can be customized according to your project's specific needs.
 
-### Uso en Astro.build
+### Usage in Astro.build
 
-Para usar el componente en un proyecto de Astro, importa y añade el componente en tu layout o página:
+To use the component in an Astro project, import and add the component to your layout or page:
 
 ```astro
 ---
@@ -67,9 +67,9 @@ import {
 <CookiesManager client:only="react" />
 ```
 
-### Uso en Next.js
+### Usage in Next.js
 
-Para implementar el componente en Next.js, añádelo a tu layout principal:
+To implement the component in Next.js, add it to your main layout:
 
 ```tsx
 import {
@@ -90,11 +90,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 }
 ```
 
-## ⚙️ Botón de preferencias
+## ⚙️ Preferences Button
 
-Además del componente principal `CookiesManager`, también puedes implementar un botón de preferencias que permita a los usuarios acceder a la configuración de cookies en cualquier momento después de haber dado su consentimiento inicial.
+In addition to the main `CookiesManager` component, you can also implement a preferences button that allows users to access cookie settings at any time after giving their initial consent.
 
-### Implementación del botón
+### Button Implementation
 
 ```tsx
 import { CookieDialogSettings } from "@/components/ui/cookies-manager";
@@ -103,16 +103,16 @@ function PreferencesButton() {
   return (
     <CookieDialogSettings>
       <button className="text-sm text-blue-600 hover:text-blue-800 underline">
-        Preferencias de cookies
+        Cookie Preferences
       </button>
     </CookieDialogSettings>
   );
 }
 ```
 
-### Uso en diferentes frameworks
+### Usage in Different Frameworks
 
-**En Astro.build:**
+**In Astro.build:**
 
 ```astro
 ---
@@ -121,12 +121,12 @@ import { CookieDialogSettings } from "@/components/ui/cookies-manager";
 
 <CookieDialogSettings client:only="react">
   <button class="text-sm text-blue-600 hover:text-blue-800 underline">
-    Preferencias de cookies
+    Cookie Preferences
   </button>
 </CookieDialogSettings>
 ```
 
-**En Next.js:**
+**In Next.js:**
 
 ```tsx
 import { CookieDialogSettings } from "@/components/ui/cookies-manager";
@@ -136,7 +136,7 @@ export default function Footer() {
     <footer>
       <CookieDialogSettings>
         <button className="text-sm text-blue-600 hover:text-blue-800 underline">
-          Preferencias de cookies
+          Cookie Preferences
         </button>
       </CookieDialogSettings>
     </footer>
@@ -144,18 +144,18 @@ export default function Footer() {
 }
 ```
 
-El componente `CookieDialogSettings` actúa como un wrapper que permite abrir el diálogo de configuración de cookies cuando se hace clic en el elemento hijo. Puedes personalizar completamente el estilo y la apariencia del botón según el diseño de tu sitio web.
+The `CookieDialogSettings` component acts as a wrapper that allows opening the cookie settings dialog when the child element is clicked. You can fully customize the style and appearance of the button according to your website's design.
 
-## 📋 Requisitos
+## 📋 Requirements
 
 - React 18+
 - Tailwind CSS
-- Google Tag Manager (para integración completa)
+- Google Tag Manager (for full integration)
 
-## 🤝 Contribuir
+## 🤝 Contributing
 
-Las contribuciones son bienvenidas. Por favor, lee nuestras guías de contribución antes de enviar un pull request.
+Contributions are welcome. Please read our contribution guidelines before submitting a pull request.
 
-## 📄 Licencia
+## 📄 License
 
-Este proyecto está bajo la licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
