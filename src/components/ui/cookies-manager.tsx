@@ -33,6 +33,59 @@ const gtag = (...args: any[]) => {
   console.log("gtag", args);
 };
 
+const dialogs: Record<string, string> = {
+  // InfoButton texts
+  infoTitle: "¿Por qué las cookies necesarias siempre están activas?",
+  infoDescription:
+    "Las cookies necesarias incluyen tanto cookies de funcionalidad como de seguridad que son absolutamente esenciales para el funcionamiento del sitio web. Las de funcionalidad permiten navegación, formularios y características interactivas. Las de seguridad protegen contra amenazas cibernéticas, verifican identidad y mantienen sesiones seguras. Están clasificadas como 'estrictamente necesarias' según GDPR/CCPA y no requieren consentimiento explícito ya que son indispensables para el servicio básico.",
+  understood: "Entendido",
+
+  // Cookie Dialog Settings
+  privacyTitle: "Centro de preferencias de la privacidad",
+  privacyDescription:
+    "A continuación te mostramos el detalle de las cookies que utilizamos en este sitio web. La información está organizada según la finalidad de cada tipo de cookie. Puedes configurar o activar aquellas que consideres adecuadas o rechazarlas todas. Las cookies técnicas se instalarán siempre ya que son esenciales para el funcionamiento básico del sitio. Haz clic en los encabezados de cada categoría para obtener más información y ajustar la configuración según tus preferencias. Ten en cuenta que bloquear ciertos tipos de cookies puede afectar tu experiencia de navegación y los servicios disponibles. Puedes consultar nuestra política de cookies en cualquier momento o",
+  cookiesPolicyLink: "aquí",
+  allowAll: "Permitir todas",
+  manageConsent: "Gestionar las preferencias de consentimiento",
+
+  // Cookie categories
+  necessary: "Necesarias",
+  alwaysActive: "Siempre activadas",
+  functionality: "🔧 Funcionalidad",
+  functionalityDescription:
+    "Cookies esenciales para el correcto funcionamiento de las características del sitio web. Permiten funciones básicas como la navegación por páginas, el acceso a áreas seguras, y la utilización de características interactivas.",
+  security: "🔒 Seguridad",
+  securityDescription:
+    "Cookies críticas para la seguridad del sitio web y la protección de los usuarios. Incluyen identificación de sesiones, prevención de ataques, autenticación de usuarios y protección contra accesos no autorizados.",
+
+  analytics: "Analíticas",
+  activated: "Activadas",
+  analyticsDescription:
+    "Estas cookies, propias o de terceros, responden al objetivo de obtener información sobre el rendimiento del sitio y la utilización del mismo por parte del usuario, como por ejemplo, realizar la medición y análisis de cómo llegan los usuarios al sitio y qué uso hacen del mismo. Asimismo, utilizamos estas cookies para elaborar modelos analíticos sobre la base de tu perfil comercial.",
+
+  personalization: "Personalización",
+  personalizationDescription:
+    "Estas cookies permiten recordar información para que el usuario acceda al servicio con determinadas características que pueden diferenciar su experiencia de la de otros usuarios, como por ejemplo, el idioma, el número de resultados a mostrar cuando el usuario realiza una búsqueda, el aspecto o contenido del servicio en función del tipo de navegador.",
+
+  advertising: "Publicidad",
+  advertisingDescription:
+    "Estas cookies, propias o de terceros, almacenan información del comportamiento del usuario obtenida a través de la observación continuada de sus hábitos de navegación (visitas repetidas a un sitio concreto, interacciones, palabras clave, producción de contenidos en línea, etc.), permitiendo desarrollar un perfil específico para mostrar publicidad en función del mismo.",
+
+  // Footer buttons
+  rejectAll: "Rechazar todas",
+  savePreferences: "Guardar preferencias",
+
+  // Main banner
+  bannerTitle: "¡No te olvides de las Cookies!",
+  bannerDescription:
+    "Utilizamos cookies propias y de terceros para mejorar la funcionalidad de nuestro sitio web, medir el tráfico y la interacción de los usuarios, y optimizar la experiencia de navegación. Estas cookies nos ayudan a analizar el uso del sitio y mantener la seguridad, siempre respetando tu privacidad. Puedes configurar las cookies, rechazar o aceptarlas todas. Este banner permanecerá visible hasta que tomes una decisión. Para más información consulta nuestra",
+  cookiePolicy: "Política de Cookies",
+  configureCookies: "Configurar Cookies",
+  rejectAllCookies: "Rechazar Todas",
+  acceptAllCookies: "Aceptar Todas",
+  cookiesText: "las cookies",
+};
+
 export type Preferences = {
   alreadyChosen: boolean;
   ad_storage: "granted" | "denied"; // Storage for advertising
@@ -148,7 +201,7 @@ function InfoButton({
         </DialogHeader>
         <DialogFooter>
           <DialogTrigger asChild>
-            <Button>Entendido</Button>
+            <Button>{dialogs.understood}</Button>
           </DialogTrigger>
         </DialogFooter>
       </DialogContent>
@@ -182,25 +235,14 @@ export function CookieDialogSettings(
         <DialogTrigger>{children}</DialogTrigger>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Centro de preferencias de la privacidad</DialogTitle>
+            <DialogTitle>{dialogs.privacyTitle}</DialogTitle>
             <DialogDescription></DialogDescription>
           </DialogHeader>
           <div className="mb-2">
             <p className="mb-4">
-              A continuación te mostramos el detalle de las cookies que tenemos
-              en la web de Universia Holding. La información la encontrarás
-              detallada en relación con la finalidad de las cookies. Podrás
-              configurar o instalar aquellas que consideres adecuadas o
-              rechazarlas todas. Recuerda que las cookies técnicas se instalarán
-              siempre ya que sin ellas la web no puede funcionar correctamente.
-              Haz clic en los encabezados de cada categoría para saber más y
-              cambiar la configuración como desees. Sin embargo, ten en cuenta
-              que el bloqueo de algunos tipos de cookies puede afectar su
-              experiencia en el sitio y los servicios que podemos ofrecer. Puede
-              consultar nuestra política de cookies en cualquier momento en la
-              Web o{" "}
+              {dialogs.privacyDescription}{" "}
               <a href="/legal/cookies" className="text-blue-500">
-                aquí
+                {dialogs.cookiesPolicyLink}
               </a>
               .
             </p>
@@ -211,23 +253,21 @@ export function CookieDialogSettings(
                   grantedAll();
                 }}
               >
-                Permitir todas
+                {dialogs.allowAll}
               </Button>
             )}
           </div>
-          <h3 className="text-lg">
-            Gestionar las preferencias de consentimiento
-          </h3>
+          <h3 className="text-lg">{dialogs.manageConsent}</h3>
           <div>
             <Accordion type="single" collapsible className="w-full">
               <AccordionItem value="necessary">
                 <AccordionTrigger>
                   <span className="flex items-center gap-2">
-                    Necesarias{" "}
-                    <Badge variant="secondary">Siempre activadas</Badge>
+                    {dialogs.necessary}{" "}
+                    <Badge variant="secondary">{dialogs.alwaysActive}</Badge>
                     <InfoButton
-                      title="¿Por qué las cookies necesarias siempre están activas?"
-                      description="Las cookies necesarias incluyen tanto cookies de funcionalidad como de seguridad que son absolutamente esenciales para el funcionamiento del sitio web. Las de funcionalidad permiten navegación, formularios y características interactivas. Las de seguridad protegen contra amenazas cibernéticas, verifican identidad y mantienen sesiones seguras. Están clasificadas como 'estrictamente necesarias' según GDPR/CCPA y no requieren consentimiento explícito ya que son indispensables para el servicio básico."
+                      title={dialogs.infoTitle}
+                      description={dialogs.infoDescription}
                     />
                   </span>
                 </AccordionTrigger>
@@ -235,27 +275,20 @@ export function CookieDialogSettings(
                   <div className="flex flex-col gap-4">
                     <div>
                       <h4 className="font-medium mb-2 flex items-center gap-2">
-                        🔧 Funcionalidad
+                        {dialogs.functionality}
                         <Switch checked={functionalityAccepted} disabled />
                       </h4>
                       <p className="text-sm text-gray-600 mb-3">
-                        Cookies esenciales para el correcto funcionamiento de
-                        las características del sitio web. Permiten funciones
-                        básicas como la navegación por páginas, el acceso a
-                        áreas seguras, y la utilización de características
-                        interactivas.
+                        {dialogs.functionalityDescription}
                       </p>
                     </div>
                     <div>
                       <h4 className="font-medium mb-2 flex items-center gap-2">
-                        🔒 Seguridad
+                        {dialogs.security}
                         <Switch checked={securityAccepted} disabled />
                       </h4>
                       <p className="text-sm text-gray-600">
-                        Cookies críticas para la seguridad del sitio web y la
-                        protección de los usuarios. Incluyen identificación de
-                        sesiones, prevención de ataques, autenticación de
-                        usuarios y protección contra accesos no autorizados.
+                        {dialogs.securityDescription}
                       </p>
                     </div>
                   </div>
@@ -264,23 +297,15 @@ export function CookieDialogSettings(
               <AccordionItem value="statistics">
                 <AccordionTrigger>
                   <span>
-                    Analíticas{" "}
+                    {dialogs.analytics}{" "}
                     {statisticsAccepted && (
-                      <Badge variant="secondary">Activadas</Badge>
+                      <Badge variant="secondary">{dialogs.activated}</Badge>
                     )}
                   </span>
                 </AccordionTrigger>
                 <AccordionContent>
                   <div className="flex flex-row justify-between gap-4">
-                    <p>
-                      Estas cookies, propias o de terceros, responden al
-                      objetivo de obtener información sobre el rendimiento del
-                      sitio y la utilización del mismo por parte del usuario,
-                      como por ejemplo, realizar la medición y análisis de cómo
-                      llegan los usuarios al sitio y qué uso hacen del mismo.
-                      Asimismo, utilizamos estas cookies para elaborar modelos
-                      analíticos sobre la base de tu perfil comercial.
-                    </p>
+                    <p>{dialogs.analyticsDescription}</p>
                     <span>
                       <Switch
                         defaultChecked={
@@ -300,23 +325,15 @@ export function CookieDialogSettings(
               <AccordionItem value="preferences">
                 <AccordionTrigger>
                   <span>
-                    Personalización{" "}
+                    {dialogs.personalization}{" "}
                     {preferencesAccepted && (
-                      <Badge variant="secondary">Activadas</Badge>
+                      <Badge variant="secondary">{dialogs.activated}</Badge>
                     )}
                   </span>
                 </AccordionTrigger>
                 <AccordionContent>
                   <div className="flex flex-row justify-between gap-4">
-                    <p>
-                      Estas cookies permiten recordar información para que el
-                      usuario acceda al servicio con determinadas
-                      características que pueden diferenciar su experiencia de
-                      la de otros usuarios, como por ejemplo, el idioma, el
-                      número de resultados a mostrar cuando el usuario realiza
-                      una búsqueda, el aspecto o contenido del servicio en
-                      función del tipo de navegador.
-                    </p>
+                    <p>{dialogs.personalizationDescription}</p>
                     <span>
                       <Switch
                         defaultChecked={
@@ -338,23 +355,15 @@ export function CookieDialogSettings(
               <AccordionItem value="marketing">
                 <AccordionTrigger>
                   <span>
-                    Publicidad{" "}
+                    {dialogs.advertising}{" "}
                     {marketingAccepted && (
-                      <Badge variant="secondary">Activadas</Badge>
+                      <Badge variant="secondary">{dialogs.activated}</Badge>
                     )}
                   </span>
                 </AccordionTrigger>
                 <AccordionContent>
                   <div className="flex flex-row justify-between gap-4">
-                    <p>
-                      Estas cookies, propias o de terceros, almacenan
-                      información del comportamiento del usuario obtenida a
-                      través de la observación continuada de sus hábitos de
-                      navegación (visitas repetidas a un sitio concreto,
-                      interacciones, palabras clave, producción de contenidos en
-                      línea, etc.), permitiendo desarrollar un perfil específico
-                      para mostrar publicidad en función del mismo.
-                    </p>
+                    <p>{dialogs.advertisingDescription}</p>
                     <span>
                       <Switch
                         defaultChecked={preferences.ad_storage === "granted"}
@@ -378,7 +387,7 @@ export function CookieDialogSettings(
                 deniedAll();
               }}
             >
-              Rechazar todas
+              {dialogs.rejectAll}
             </Button>
             <DialogTrigger
               onClick={() => {
@@ -388,7 +397,7 @@ export function CookieDialogSettings(
                 });
               }}
             >
-              <Button size={"lg"}>Guardar preferencias</Button>
+              <Button size={"lg"}>{dialogs.savePreferences}</Button>
             </DialogTrigger>
           </DialogFooter>
         </DialogContent>
@@ -412,27 +421,17 @@ export function CookiesManager() {
         <DrawerContent>
           <aside className="container mx-auto p-4 xl:grid xl:gap-4 xl:grid-cols-[1fr_auto] xl:items-center">
             <div className="max-xl:pb-4">
-              <h2 className="text-2xl text-gray-600">
-                ¡No te olvides de las Cookies!
-              </h2>
+              <h2 className="text-2xl text-gray-600">{dialogs.bannerTitle}</h2>
               <p className="text-gray-600">
-                Para Universia Holding es importante adaptarse a tus gustos y
-                preferencias, para ello usamos cookies propias y de terceros que
-                nos permiten medir el volumen y la interacción de los usuarios
-                en la web y nos ayudan a mejorarla, permitiéndonos analizar tus
-                hábitos y elaborar perfiles de navegación, respetando en todo
-                caso tu privacidad. Puedes configurar las cookies, rechazar o
-                aceptarlas todas. Este banner se mantendrá activo hasta que
-                ejecutes una de las tres opciones. Para más información consulta
-                nuestra{" "}
+                {dialogs.bannerDescription}{" "}
                 <a className="text-blue-400" href="/legal/cookies">
-                  Política de Cookies
+                  {dialogs.cookiePolicy}
                 </a>
               </p>
             </div>
             <div className="flex flex-row gap-2">
               <CookieDialogSettings>
-                <Button>Configurar Cookies</Button>
+                <Button>{dialogs.configureCookies}</Button>
               </CookieDialogSettings>
               <Button
                 onClick={() => {
@@ -440,7 +439,7 @@ export function CookiesManager() {
                   setOpen(false);
                 }}
               >
-                Rechazar Todas <span>las cookies</span>
+                {dialogs.rejectAllCookies} <span>{dialogs.cookiesText}</span>
               </Button>
               <Button
                 onClick={() => {
@@ -448,7 +447,7 @@ export function CookiesManager() {
                   setOpen(false);
                 }}
               >
-                Aceptar Todas <span>las cookies</span>
+                {dialogs.acceptAllCookies} <span>{dialogs.cookiesText}</span>
               </Button>
             </div>
           </aside>
