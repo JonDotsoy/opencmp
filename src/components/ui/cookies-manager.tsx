@@ -95,7 +95,7 @@ export type Preferences = {
   security_storage: "granted" | "denied"; // Storage for security
 };
 
-const preferencesState = persistentAtom<Preferences>(
+export const preferencesState = persistentAtom<Preferences>(
   "cookies-preferences",
   {
     alreadyChosen: false,
@@ -117,15 +117,13 @@ gtag("consent", "default", {
 });
 
 preferencesState.subscribe((newPreferences) => {
-  if (newPreferences.alreadyChosen) {
-    gtag("consent", "update", {
-      ad_storage: newPreferences.ad_storage,
-      analytics_storage: newPreferences.analytics_storage,
-      functionality_storage: newPreferences.functionality_storage,
-      personalization_storage: newPreferences.personalization_storage,
-      security_storage: newPreferences.security_storage,
-    });
-  }
+  gtag("consent", "update", {
+    ad_storage: newPreferences.ad_storage,
+    analytics_storage: newPreferences.analytics_storage,
+    functionality_storage: newPreferences.functionality_storage,
+    personalization_storage: newPreferences.personalization_storage,
+    security_storage: newPreferences.security_storage,
+  });
 });
 
 const grantedAll = () => {
