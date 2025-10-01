@@ -58,7 +58,10 @@ Para usar el componente en un proyecto de Astro, importa y añade el componente 
 
 ```astro
 ---
-import { CookieDialogSettings, CookiesManager } from "@/components/ui/cookies-manager";
+import {
+  CookieDialogSettings,
+  CookiesManager,
+} from "@/components/ui/cookies-manager";
 ---
 
 <CookiesManager client:only="react" />

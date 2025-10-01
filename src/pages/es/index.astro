@@ -1,7 +1,7 @@
 ---
 import {
-	CookieDialogSettings,
-	CookiesManager,
+  CookieDialogSettings,
+  CookiesManager,
 } from "@/components/ui/cookies-manager";
 import "../../styles/global.css";
 import { SamplesCodeTabs, SettingsCodeTabs } from "@/components/CodeTabs";
@@ -13,520 +13,530 @@ const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		
-		<!-- SEO Meta Tags -->
-		<title>OpenCMP Cookies Manager - Gestión de Consentimiento GDPR y CCPA</title>
-		<meta name="description" content="Solución moderna y completa para la gestión de consentimiento de cookies con integración directa a Google Tag Manager. Compatible con GDPR y CCPA." />
-		<meta name="keywords" content="cookies manager, GDPR, CCPA, consentimiento, privacy, Google Tag Manager, React, Tailwind CSS, shadcn/ui" />
-		<meta name="author" content="OpenCMP" />
-		<meta name="robots" content="index, follow" />
-		
-		<!-- Open Graph Meta Tags -->
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content="OpenCMP Cookies Manager - Gestión de Consentimiento GDPR y CCPA" />
-		<meta property="og:description" content="Solución moderna y completa para la gestión de consentimiento de cookies con integración directa a Google Tag Manager. Compatible con GDPR y CCPA." />
-		<meta property="og:image" content="/image.png" />
-		<meta property="og:url" content="https://jondotsoy.github.io/opencmp/" />
-		<meta property="og:site_name" content="OpenCMP Cookies Manager" />
-		<meta property="og:locale" content="es_ES" />
-		
-		<!-- Twitter Card Meta Tags -->
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content="OpenCMP Cookies Manager - Gestión de Consentimiento GDPR y CCPA" />
-		<meta name="twitter:description" content="Solución moderna y completa para la gestión de consentimiento de cookies con integración directa a Google Tag Manager." />
-		<meta name="twitter:image" content="/image.png" />
-		
-		<!-- Canonical URL -->
-		<link rel="canonical" href="https://jondotsoy.github.io/opencmp/" />
-		
-		<!-- Additional SEO -->
-		<meta name="theme-color" content="#2563eb" />
-		<meta name="application-name" content="OpenCMP Cookies Manager" />
-		<meta name="msapplication-TileColor" content="#2563eb" />
-		
-		<!-- Structured Data -->
-		<script type="application/ld+json">
-		{
-			"@context": "https://schema.org",
-			"@type": "SoftwareApplication",
-			"name": "OpenCMP Cookies Manager",
-			"description": "Solución moderna y completa para la gestión de consentimiento de cookies con integración directa a Google Tag Manager. Compatible con GDPR y CCPA.",
-			"applicationCategory": "WebApplication",
-			"operatingSystem": "Web",
-			"offers": {
-				"@type": "Offer",
-				"price": "0",
-				"priceCurrency": "EUR"
-			},
-			"author": {
-				"@type": "Organization",
-				"name": "OpenCMP"
-			},
-			"featureList": [
-				"Integración directa con Google Tag Manager",
-				"Cumplimiento GDPR y CCPA",
-				"Tecnología moderna con React y Tailwind CSS",
-				"Fácil instalación mediante shadcn CLI",
-				"Código fuente completamente personalizable",
-				"Diseño responsive y accesible"
-			]
-		}
-		</script>
-	</head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
 
-	<body class="bg-gradient-to-br from-slate-50 to-slate-100 min-h-screen">
-		<CookiesManager client:only="react" />
+    <!-- SEO Meta Tags -->
+    <title>
+      OpenCMP Cookies Manager - Gestión de Consentimiento GDPR y CCPA
+    </title>
+    <meta
+      name="description"
+      content="Solución moderna y completa para la gestión de consentimiento de cookies con integración directa a Google Tag Manager. Compatible con GDPR y CCPA."
+    />
+    <meta
+      name="keywords"
+      content="cookies manager, GDPR, CCPA, consentimiento, privacy, Google Tag Manager, React, Tailwind CSS, shadcn/ui"
+    />
+    <meta name="author" content="OpenCMP" />
+    <meta name="robots" content="index, follow" />
 
-		<!-- Hero Section -->
-		<section class="min-h-screen flex items-center justify-center px-4">
-			<div class="max-w-4xl mx-auto text-center">
-				<!-- Hero Content -->
-				<div class="mb-12">
-					<h1
-						class="text-5xl md:text-7xl font-bold text-slate-800 mb-6 leading-tight"
-					>
-						<span class="text-blue-600">OpenCMP</span>
-						Cookies Manager
-					</h1>
-					<p
-						class="text-xl md:text-2xl text-slate-600 mb-8 max-w-3xl mx-auto leading-relaxed"
-					>
-						Solución moderna y completa para la gestión de
-						consentimiento de cookies con integración directa a
-						Google Tag Manager
-					</p>
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="OpenCMP Cookies Manager - Gestión de Consentimiento GDPR y CCPA"
+    />
+    <meta
+      property="og:description"
+      content="Solución moderna y completa para la gestión de consentimiento de cookies con integración directa a Google Tag Manager. Compatible con GDPR y CCPA."
+    />
+    <meta property="og:image" content="/image.png" />
+    <meta property="og:url" content="https://jondotsoy.github.io/opencmp/" />
+    <meta property="og:site_name" content="OpenCMP Cookies Manager" />
+    <meta property="og:locale" content="es_ES" />
 
-					<!-- Features badges -->
-					<div class="flex flex-wrap justify-center gap-3 mb-8">
-						<span
-							class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium"
-						>
-							✅ GDPR Compliant
-						</span>
-						<span
-							class="bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium"
-						>
-							🚀 Google Tag Manager
-						</span>
-						<span
-							class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-medium"
-						>
-							⚡ React + Tailwind
-						</span>
-						<span
-							class="bg-orange-100 text-orange-800 px-4 py-2 rounded-full text-sm font-medium"
-						>
-							📱 Responsive
-						</span>
-					</div>
-				</div>
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="OpenCMP Cookies Manager - Gestión de Consentimiento GDPR y CCPA"
+    />
+    <meta
+      name="twitter:description"
+      content="Solución moderna y completa para la gestión de consentimiento de cookies con integración directa a Google Tag Manager."
+    />
+    <meta name="twitter:image" content="/image.png" />
 
-				<!-- Action Buttons -->
-				<div
-					class="flex flex-col sm:flex-row gap-4 justify-center items-center"
-				>
-					<button
-						id="reset-preferences"
-						class="group relative overflow-hidden bg-white border-2 border-blue-600 text-blue-600 hover:text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/25 min-w-[200px]"
-					>
-						<span
-							class="absolute inset-0 bg-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
-						></span>
-						<span class="relative z-10">Reiniciar preferencias</span
-						>
-					</button>
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://jondotsoy.github.io/opencmp/" />
 
-					<CookieDialogSettings client:only>
-						<button
-							class="group relative overflow-hidden bg-blue-600 text-white hover:bg-blue-700 px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/25 min-w-[200px]"
-						>
-							<span class="relative z-10">Configurar Cookies</span
-							>
-						</button>
-					</CookieDialogSettings>
-				</div>
+    <!-- Additional SEO -->
+    <meta name="theme-color" content="#2563eb" />
+    <meta name="application-name" content="OpenCMP Cookies Manager" />
+    <meta name="msapplication-TileColor" content="#2563eb" />
 
-				<!-- Optional decorative element -->
-				<div class="mt-16 opacity-20">
-					<div class="w-24 h-1 bg-blue-600 mx-auto rounded-full">
-					</div>
-				</div>
-			</div>
-		</section>
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "OpenCMP Cookies Manager",
+        "description": "Solución moderna y completa para la gestión de consentimiento de cookies con integración directa a Google Tag Manager. Compatible con GDPR y CCPA.",
+        "applicationCategory": "WebApplication",
+        "operatingSystem": "Web",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "EUR"
+        },
+        "author": {
+          "@type": "Organization",
+          "name": "OpenCMP"
+        },
+        "featureList": [
+          "Integración directa con Google Tag Manager",
+          "Cumplimiento GDPR y CCPA",
+          "Tecnología moderna con React y Tailwind CSS",
+          "Fácil instalación mediante shadcn CLI",
+          "Código fuente completamente personalizable",
+          "Diseño responsive y accesible"
+        ]
+      }
+    </script>
+  </head>
 
-		<!-- Why OpenCMP Section -->
-		<section class="py-20 px-4 bg-white">
-			<div class="max-w-6xl mx-auto">
-				<div class="text-center mb-16">
-					<h2
-						class="text-4xl md:text-5xl font-bold text-slate-800 mb-6"
-					>
-						¿Por qué <span class="text-blue-600">OpenCMP</span>?
-					</h2>
-					<p
-						class="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed"
-					>
-						En el panorama digital actual, el cumplimiento de las
-						regulaciones de privacidad es fundamental. OpenCMP
-						Cookies Manager te permite mantener el cumplimiento
-						legal sin comprometer la experiencia de usuario.
-					</p>
-				</div>
+  <body class="bg-gradient-to-br from-slate-50 to-slate-100 min-h-screen">
+    <CookiesManager client:only="react" />
 
-				<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-					<!-- Compliance Card -->
-					<div
-						class="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl border border-blue-200 hover:shadow-lg transition-shadow duration-300"
-					>
-						<div
-							class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-6"
-						>
-							<span class="text-2xl text-white">🛡️</span>
-						</div>
-						<h3 class="text-2xl font-bold text-slate-800 mb-4">
-							Cumplimiento Normativo
-						</h3>
-						<ul class="space-y-3 text-slate-600">
-							<li class="flex items-start gap-3">
-								<span class="text-green-600 mt-1">✓</span>
-								<span
-									>Cumple con regulaciones <strong
-										>GDPR</strong
-									> de la Unión Europea</span
-								>
-							</li>
-							<li class="flex items-start gap-3">
-								<span class="text-green-600 mt-1">✓</span>
-								<span
-									>Adherencia a <strong>CCPA</strong> de California</span
-								>
-							</li>
-							<li class="flex items-start gap-3">
-								<span class="text-green-600 mt-1">✓</span>
-								<span
-									>Normativas internacionales de protección de
-									datos</span
-								>
-							</li>
-						</ul>
-					</div>
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <!-- Hero Content -->
+        <div class="mb-12">
+          <h1
+            class="text-5xl md:text-7xl font-bold text-slate-800 mb-6 leading-tight"
+          >
+            <span class="text-blue-600">OpenCMP</span>
+            Cookies Manager
+          </h1>
+          <p
+            class="text-xl md:text-2xl text-slate-600 mb-8 max-w-3xl mx-auto leading-relaxed"
+          >
+            Solución moderna y completa para la gestión de consentimiento de
+            cookies con integración directa a Google Tag Manager
+          </p>
 
-					<!-- User Experience Card -->
-					<div
-						class="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-2xl border border-green-200 hover:shadow-lg transition-shadow duration-300"
-					>
-						<div
-							class="w-16 h-16 bg-green-600 rounded-2xl flex items-center justify-center mb-6"
-						>
-							<span class="text-2xl text-white">👥</span>
-						</div>
-						<h3 class="text-2xl font-bold text-slate-800 mb-4">
-							Experiencia de Usuario
-						</h3>
-						<ul class="space-y-3 text-slate-600">
-							<li class="flex items-start gap-3">
-								<span class="text-green-600 mt-1">✓</span>
-								<span
-									>Transparencia total sobre el uso de cookies</span
-								>
-							</li>
-							<li class="flex items-start gap-3">
-								<span class="text-green-600 mt-1">✓</span>
-								<span
-									>Control completo a los usuarios sobre sus
-									datos</span
-								>
-							</li>
-							<li class="flex items-start gap-3">
-								<span class="text-green-600 mt-1">✓</span>
-								<span>Interfaz intuitiva y personalizable</span>
-							</li>
-						</ul>
-					</div>
+          <!-- Features badges -->
+          <div class="flex flex-wrap justify-center gap-3 mb-8">
+            <span
+              class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium"
+            >
+              ✅ GDPR Compliant
+            </span>
+            <span
+              class="bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium"
+            >
+              🚀 Google Tag Manager
+            </span>
+            <span
+              class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-medium"
+            >
+              ⚡ React + Tailwind
+            </span>
+            <span
+              class="bg-orange-100 text-orange-800 px-4 py-2 rounded-full text-sm font-medium"
+            >
+              📱 Responsive
+            </span>
+          </div>
+        </div>
 
-					<!-- Technical Excellence Card -->
-					<div
-						class="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-2xl border border-purple-200 hover:shadow-lg transition-shadow duration-300 md:col-span-2 lg:col-span-1"
-					>
-						<div
-							class="w-16 h-16 bg-purple-600 rounded-2xl flex items-center justify-center mb-6"
-						>
-							<span class="text-2xl text-white">⚡</span>
-						</div>
-						<h3 class="text-2xl font-bold text-slate-800 mb-4">
-							Excelencia Técnica
-						</h3>
-						<ul class="space-y-3 text-slate-600">
-							<li class="flex items-start gap-3">
-								<span class="text-green-600 mt-1">✓</span>
-								<span
-									>Integración directa con <strong
-										>Google Tag Manager</strong
-									></span
-								>
-							</li>
-							<li class="flex items-start gap-3">
-								<span class="text-green-600 mt-1">✓</span>
-								<span
-									>Tecnología moderna: React + Tailwind CSS</span
-								>
-							</li>
-							<li class="flex items-start gap-3">
-								<span class="text-green-600 mt-1">✓</span>
-								<span
-									>Código fuente completamente personalizable</span
-								>
-							</li>
-						</ul>
-					</div>
-				</div>
+        <!-- Action Buttons -->
+        <div
+          class="flex flex-col sm:flex-row gap-4 justify-center items-center"
+        >
+          <button
+            id="reset-preferences"
+            class="group relative overflow-hidden bg-white border-2 border-blue-600 text-blue-600 hover:text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/25 min-w-[200px]"
+          >
+            <span
+              class="absolute inset-0 bg-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+            ></span>
+            <span class="relative z-10">Reiniciar preferencias</span>
+          </button>
 
-				<!-- Bottom CTA -->
-				<div class="text-center mt-16">
-					<p class="text-lg text-slate-600 mb-6">
-						La plataforma facilita la implementación técnica
-						mientras garantiza que tu sitio web cumple con las
-						normativas internacionales de protección de datos más
-						estrictas.
-					</p>
-					<div
-						class="inline-flex items-center gap-2 bg-blue-50 px-6 py-3 rounded-full border border-blue-200"
-					>
-						<span class="text-blue-600 font-semibold"
-							>🚀 Instalación sencilla mediante shadcn CLI</span
-						>
-					</div>
-				</div>
-			</div>
-		</section>
+          <CookieDialogSettings client:only>
+            <button
+              class="group relative overflow-hidden bg-blue-600 text-white hover:bg-blue-700 px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/25 min-w-[200px]"
+            >
+              <span class="relative z-10">Configurar Cookies</span>
+            </button>
+          </CookieDialogSettings>
+        </div>
 
-		<!-- Installation Section -->
-		<section
-			class="py-20 px-4 bg-gradient-to-br from-slate-50 to-slate-100"
-		>
-			<div class="max-w-4xl mx-auto">
-				<div class="text-center mb-12">
-					<h2
-						class="text-4xl md:text-5xl font-bold text-slate-800 mb-6"
-					>
-						Instalación <span class="text-blue-600">Rápida</span>
-					</h2>
-					<p
-						class="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed"
-					>
-						Integra OpenCMP Cookies Manager en tu proyecto en
-						minutos. Compatible con React, Next.js, Astro y
-						cualquier framework moderno.
-					</p>
-				</div>
+        <!-- Optional decorative element -->
+        <div class="mt-16 opacity-20">
+          <div class="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
+        </div>
+      </div>
+    </section>
 
-				<div class="space-y-8">
-					<!-- Installation Steps -->
-					<div
-						class="bg-white rounded-2xl border border-slate-200 p-8 shadow-lg"
-					>
-						<h3
-							class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-3"
-						>
-							<span
-								class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold"
-								>1</span
-							>
-							Instala el componente
-						</h3>
+    <!-- Why OpenCMP Section -->
+    <section class="py-20 px-4 bg-white">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
+            ¿Por qué <span class="text-blue-600">OpenCMP</span>?
+          </h2>
+          <p class="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            En el panorama digital actual, el cumplimiento de las regulaciones
+            de privacidad es fundamental. OpenCMP Cookies Manager te permite
+            mantener el cumplimiento legal sin comprometer la experiencia de
+            usuario.
+          </p>
+        </div>
 
-						<div class="space-y-4">
-							<p class="text-slate-600 mb-4">
-								Utiliza shadcn CLI para instalar el componente
-								directamente en tu proyecto:
-							</p>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Compliance Card -->
+          <div
+            class="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl border border-blue-200 hover:shadow-lg transition-shadow duration-300"
+          >
+            <div
+              class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-6"
+            >
+              <span class="text-2xl text-white">🛡️</span>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-800 mb-4">
+              Cumplimiento Normativo
+            </h3>
+            <ul class="space-y-3 text-slate-600">
+              <li class="flex items-start gap-3">
+                <span class="text-green-600 mt-1">✓</span>
+                <span
+                  >Cumple con regulaciones <strong>GDPR</strong> de la Unión Europea</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-green-600 mt-1">✓</span>
+                <span>Adherencia a <strong>CCPA</strong> de California</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-green-600 mt-1">✓</span>
+                <span>Normativas internacionales de protección de datos</span>
+              </li>
+            </ul>
+          </div>
 
-							<!-- Command snippet with copy button -->
-							<InstallationTabs client:load/>
-						</div>
-					</div>
+          <!-- User Experience Card -->
+          <div
+            class="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-2xl border border-green-200 hover:shadow-lg transition-shadow duration-300"
+          >
+            <div
+              class="w-16 h-16 bg-green-600 rounded-2xl flex items-center justify-center mb-6"
+            >
+              <span class="text-2xl text-white">👥</span>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-800 mb-4">
+              Experiencia de Usuario
+            </h3>
+            <ul class="space-y-3 text-slate-600">
+              <li class="flex items-start gap-3">
+                <span class="text-green-600 mt-1">✓</span>
+                <span>Transparencia total sobre el uso de cookies</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-green-600 mt-1">✓</span>
+                <span>Control completo a los usuarios sobre sus datos</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-green-600 mt-1">✓</span>
+                <span>Interfaz intuitiva y personalizable</span>
+              </li>
+            </ul>
+          </div>
 
-					<!-- Usage example -->
-					<div
-						class="bg-white rounded-2xl border border-slate-200 p-8 shadow-lg"
-					>
-						<h3
-							class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-3"
-						>
-							<span
-								class="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center text-sm font-bold"
-								>2</span
-							>
-							Uso básico
-						</h3>
+          <!-- Technical Excellence Card -->
+          <div
+            class="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-2xl border border-purple-200 hover:shadow-lg transition-shadow duration-300 md:col-span-2 lg:col-span-1"
+          >
+            <div
+              class="w-16 h-16 bg-purple-600 rounded-2xl flex items-center justify-center mb-6"
+            >
+              <span class="text-2xl text-white">⚡</span>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-800 mb-4">
+              Excelencia Técnica
+            </h3>
+            <ul class="space-y-3 text-slate-600">
+              <li class="flex items-start gap-3">
+                <span class="text-green-600 mt-1">✓</span>
+                <span
+                  >Integración directa con <strong>Google Tag Manager</strong
+                  ></span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-green-600 mt-1">✓</span>
+                <span>Tecnología moderna: React + Tailwind CSS</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-green-600 mt-1">✓</span>
+                <span>Código fuente completamente personalizable</span>
+              </li>
+            </ul>
+          </div>
+        </div>
 
-						<div class="space-y-6">
-							<p class="text-slate-600 mb-4">
-								Importa y utiliza el componente en tu aplicación
-								según el framework que uses:
-							</p>
+        <!-- Bottom CTA -->
+        <div class="text-center mt-16">
+          <p class="text-lg text-slate-600 mb-6">
+            La plataforma facilita la implementación técnica mientras garantiza
+            que tu sitio web cumple con las normativas internacionales de
+            protección de datos más estrictas.
+          </p>
+          <div
+            class="inline-flex items-center gap-2 bg-blue-50 px-6 py-3 rounded-full border border-blue-200"
+          >
+            <span class="text-blue-600 font-semibold"
+              >🚀 Instalación sencilla mediante shadcn CLI</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
 
-							<!-- Code Tabs -->
-							<SamplesCodeTabs client:load />
-						</div>
+    <!-- Installation Section -->
+    <section class="py-20 px-4 bg-gradient-to-br from-slate-50 to-slate-100">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
+            Instalación <span class="text-blue-600">Rápida</span>
+          </h2>
+          <p class="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            Integra OpenCMP Cookies Manager en tu proyecto en minutos.
+            Compatible con React, Next.js, Astro y cualquier framework moderno.
+          </p>
+        </div>
 
-						<!-- Next steps -->
-						<div
-							class="mt-8 p-6 bg-blue-50 rounded-xl border border-blue-200"
-						>
-							<h4
-								class="text-lg font-semibold text-blue-800 mb-3 flex items-center gap-2"
-							>
-								<svg
-									class="w-5 h-5"
-									fill="currentColor"
-									viewBox="0 0 24 24"
-								>
-									<path
-										d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
-									></path>
-								</svg>
-								¡Listo para usar!
-							</h4>
-							<p class="text-blue-700">
-								Tu gestor de cookies estará funcionando
-								inmediatamente. El componente incluye
-								configuración predeterminada para cumplimiento
-								GDPR y se integra automáticamente con Google Tag
-								Manager.
-							</p>
-						</div>
-					</div>
+        <div class="space-y-8">
+          <!-- Installation Steps -->
+          <div
+            class="bg-white rounded-2xl border border-slate-200 p-8 shadow-lg"
+          >
+            <h3
+              class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-3"
+            >
+              <span
+                class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold"
+                >1</span
+              >
+              Instala el componente
+            </h3>
 
-					<!-- Step 3: Settings Button -->
-					<div
-						class="bg-white rounded-2xl border border-slate-200 p-8 shadow-lg"
-					>
-						<h3
-							class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-3"
-						>
-							<span
-								class="w-8 h-8 bg-purple-600 text-white rounded-full flex items-center justify-center text-sm font-bold"
-								>3</span
-							>
-							Botón de preferencias (opcional)
-						</h3>
+            <div class="space-y-4">
+              <p class="text-slate-600 mb-4">
+                Utiliza shadcn CLI para instalar el componente directamente en
+                tu proyecto:
+              </p>
 
-						<div class="space-y-6">
-							<p class="text-slate-600 mb-4">
-								Agrega un botón para que los usuarios puedan abrir el panel de configuración de cookies en cualquier momento y desde cualquier parte de tu sitio:
-							</p>
+              <!-- Command snippet with copy button -->
+              <InstallationTabs client:load />
+            </div>
+          </div>
 
-							<SettingsCodeTabs client:load></SettingsCodeTabs>
+          <!-- Usage example -->
+          <div
+            class="bg-white rounded-2xl border border-slate-200 p-8 shadow-lg"
+          >
+            <h3
+              class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-3"
+            >
+              <span
+                class="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center text-sm font-bold"
+                >2</span
+              >
+              Uso básico
+            </h3>
 
-							<div class="bg-amber-50 rounded-xl border border-amber-200 p-4">
-								<p class="text-amber-800 text-sm">
-									<strong>💡 Tip:</strong> Esta etiqueta permite abrir el panel de preferencias desde cualquier parte del sitio. Úsala en tu footer, navbar o donde consideres más apropiado para la experiencia de usuario.
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+            <div class="space-y-6">
+              <p class="text-slate-600 mb-4">
+                Importa y utiliza el componente en tu aplicación según el
+                framework que uses:
+              </p>
 
-		<!-- Footer -->
-		<footer class="bg-slate-800 text-slate-300 py-12 px-4">
-			<div class="max-w-6xl mx-auto">
-				<div class="grid md:grid-cols-3 gap-8">
-					<!-- Project Info -->
-					<div>
-						<h3 class="text-2xl font-bold text-white mb-4">
-							<span class="text-blue-400">OpenCMP</span> Cookies Manager
-						</h3>
-						<p class="text-slate-400 mb-4">
-							Solución moderna y completa para la gestión de consentimiento de cookies con integración directa a Google Tag Manager.
-						</p>
-						<div class="flex items-center gap-2 text-sm">
-							<span class="text-slate-400">Licenciado bajo</span>
-							<a 
-								href="https://github.com/JonDotsoy/opencmp/blob/develop/LICENSE" 
-								target="_blank" 
-								rel="noopener noreferrer"
-								class="text-blue-400 hover:text-blue-300 transition-colors"
-							>
-								Licencia MIT
-							</a>
-						</div>
-					</div>
+              <!-- Code Tabs -->
+              <SamplesCodeTabs client:load />
+            </div>
 
-					<!-- Links -->
-					<div>
-						<h4 class="text-lg font-semibold text-white mb-4">Enlaces</h4>
-						<ul class="space-y-3">
-							<li>
-								<a 
-									href="https://github.com/JonDotsoy/opencmp" 
-									target="_blank" 
-									rel="noopener noreferrer"
-									class="text-slate-400 hover:text-blue-400 transition-colors flex items-center gap-2"
-								>
-									<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-										<path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
-									</svg>
-									Repositorio GitHub
-								</a>
-							</li>
-							<li>
-								<a 
-									href={`${baseUrl}/en/`}
-									class="text-slate-400 hover:text-blue-400 transition-colors flex items-center gap-2"
-								>
-									<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"></path>
-									</svg>
-									English Version
-								</a>
-							</li>
-						</ul>
-					</div>
+            <!-- Next steps -->
+            <div class="mt-8 p-6 bg-blue-50 rounded-xl border border-blue-200">
+              <h4
+                class="text-lg font-semibold text-blue-800 mb-3 flex items-center gap-2"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                  ></path>
+                </svg>
+                ¡Listo para usar!
+              </h4>
+              <p class="text-blue-700">
+                Tu gestor de cookies estará funcionando inmediatamente. El
+                componente incluye configuración predeterminada para
+                cumplimiento GDPR y se integra automáticamente con Google Tag
+                Manager.
+              </p>
+            </div>
+          </div>
 
-					<!-- Additional Info -->
-					<div>
-						<h4 class="text-lg font-semibold text-white mb-4">Características</h4>
-						<ul class="space-y-2 text-sm text-slate-400">
-							<li>✅ Compatible GDPR y CCPA</li>
-							<li>🚀 Integración Google Tag Manager</li>
-							<li>⚡ React + Tailwind CSS</li>
-							<li>📱 Diseño Responsive</li>
-							<li>🎨 Completamente Personalizable</li>
-						</ul>
-					</div>
-				</div>
+          <!-- Step 3: Settings Button -->
+          <div
+            class="bg-white rounded-2xl border border-slate-200 p-8 shadow-lg"
+          >
+            <h3
+              class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-3"
+            >
+              <span
+                class="w-8 h-8 bg-purple-600 text-white rounded-full flex items-center justify-center text-sm font-bold"
+                >3</span
+              >
+              Botón de preferencias (opcional)
+            </h3>
 
-				<!-- Bottom Bar -->
-				<div class="border-t border-slate-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-					<p class="text-slate-400 text-sm">
-						© 2025 OpenCMP Cookies Manager. Todos los derechos reservados.
-					</p>
-					<div class="flex items-center gap-4 mt-4 md:mt-0">
-						<span class="text-slate-400 text-sm">Hecho con</span>
-						<span class="text-red-400">❤️</span>
-						<span class="text-slate-400 text-sm">para el cumplimiento de privacidad</span>
-					</div>
-				</div>
-			</div>
-		</footer>
-	</body>
+            <div class="space-y-6">
+              <p class="text-slate-600 mb-4">
+                Agrega un botón para que los usuarios puedan abrir el panel de
+                configuración de cookies en cualquier momento y desde cualquier
+                parte de tu sitio:
+              </p>
+
+              <SettingsCodeTabs client:load />
+
+              <div class="bg-amber-50 rounded-xl border border-amber-200 p-4">
+                <p class="text-amber-800 text-sm">
+                  <strong>💡 Tip:</strong> Esta etiqueta permite abrir el panel de
+                  preferencias desde cualquier parte del sitio. Úsala en tu footer,
+                  navbar o donde consideres más apropiado para la experiencia de
+                  usuario.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-slate-300 py-12 px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Project Info -->
+          <div>
+            <h3 class="text-2xl font-bold text-white mb-4">
+              <span class="text-blue-400">OpenCMP</span> Cookies Manager
+            </h3>
+            <p class="text-slate-400 mb-4">
+              Solución moderna y completa para la gestión de consentimiento de
+              cookies con integración directa a Google Tag Manager.
+            </p>
+            <div class="flex items-center gap-2 text-sm">
+              <span class="text-slate-400">Licenciado bajo</span>
+              <a
+                href="https://github.com/JonDotsoy/opencmp/blob/develop/LICENSE"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-blue-400 hover:text-blue-300 transition-colors"
+              >
+                Licencia MIT
+              </a>
+            </div>
+          </div>
+
+          <!-- Links -->
+          <div>
+            <h4 class="text-lg font-semibold text-white mb-4">Enlaces</h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="https://github.com/JonDotsoy/opencmp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-slate-400 hover:text-blue-400 transition-colors flex items-center gap-2"
+                >
+                  <svg
+                    class="w-5 h-5"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                  Repositorio GitHub
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`${baseUrl}/en/`}
+                  class="text-slate-400 hover:text-blue-400 transition-colors flex items-center gap-2"
+                >
+                  <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"
+                    ></path>
+                  </svg>
+                  English Version
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Additional Info -->
+          <div>
+            <h4 class="text-lg font-semibold text-white mb-4">
+              Características
+            </h4>
+            <ul class="space-y-2 text-sm text-slate-400">
+              <li>✅ Compatible GDPR y CCPA</li>
+              <li>🚀 Integración Google Tag Manager</li>
+              <li>⚡ React + Tailwind CSS</li>
+              <li>📱 Diseño Responsive</li>
+              <li>🎨 Completamente Personalizable</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div
+          class="border-t border-slate-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-slate-400 text-sm">
+            © 2025 OpenCMP Cookies Manager. Todos los derechos reservados.
+          </p>
+          <div class="flex items-center gap-4 mt-4 md:mt-0">
+            <span class="text-slate-400 text-sm">Hecho con</span>
+            <span class="text-red-400">❤️</span>
+            <span class="text-slate-400 text-sm"
+              >para el cumplimiento de privacidad</span
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
 
 <script>
-	import { restartPreferences } from "@/components/ui/cookies-manager";
+  import { restartPreferences } from "@/components/ui/cookies-manager";
 
-	document
-		.getElementById("reset-preferences")
-		?.addEventListener("click", () => {
-			restartPreferences();
-			location.reload();
-		});
+  document
+    .getElementById("reset-preferences")
+    ?.addEventListener("click", () => {
+      restartPreferences();
+      location.reload();
+    });
 </script>
