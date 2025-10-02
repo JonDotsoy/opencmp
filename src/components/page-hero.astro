@@ -1,0 +1,590 @@
+<!-- Animated Background Styles -->
+<style>
+  :root {
+    /* Animation Durations */
+    --gradient-duration: 15s;
+    --float-1-duration: 8s;
+    --float-2-duration: 6s;
+    --float-3-duration: 10s;
+    --particle-duration: 12s;
+
+    /* Animation Easing Functions */
+    --gradient-easing: ease;
+    --float-easing: ease-in-out;
+    --particle-easing: ease-in-out;
+
+    /* Float Movement Distances */
+    --float-1-y-small: -20px;
+    --float-1-y-medium: 10px;
+    --float-2-y: -30px;
+    --float-3-y-small: -15px;
+    --float-3-y-large: -25px;
+    --float-3-y-medium: -10px;
+
+    /* Particle Movement */
+    --particle-move-y: -100px;
+    --particle-move-x: 50px;
+    --particle-opacity-min: 0.3;
+    --particle-opacity-max: 0.8;
+
+    /* Gradient Background Colors */
+    --gradient-color-1: #dbeafe;
+    --gradient-color-2: #e0e7ff;
+    --gradient-color-3: #f3e8ff;
+    --gradient-color-4: #ecfdf5;
+
+    /* Particle Colors */
+    --particle-color-1: #3b82f6;
+    --particle-color-2: #8b5cf6;
+
+    /* Background Size Values */
+    --gradient-size-large: 400% 400%;
+    --gradient-size-medium: 200% 200%;
+
+    /* Animation Delays */
+    --delay-0: 0s;
+    --delay-2: -2s;
+    --delay-3: -3s;
+    --delay-4: -4s;
+    --delay-6: -6s;
+    --delay-7: -7s;
+    --delay-8: -8s;
+    --delay-10: -10s;
+
+    /* Particle Sizes */
+    --particle-size-xs: 4px;
+    --particle-size-sm: 5px;
+    --particle-size-md: 6px;
+    --particle-size-lg: 7px;
+    --particle-size-xl: 8px;
+    --particle-size-2xl: 9px;
+    --particle-size-3xl: 10px;
+    --particle-size-4xl: 12px;
+
+    /* SVG Animation Properties */
+    --svg-float-duration: 20s;
+    --svg-rotate-duration: 30s;
+    --svg-scale-duration: 15s;
+    --svg-opacity-min: 0.1;
+    --svg-opacity-max: 0.3;
+    --svg-size-small: 60px;
+    --svg-size-medium: 80px;
+    --svg-size-large: 100px;
+
+    /* SVG Scale Animation Steps */
+    --svg-scale-start: 1;
+    --svg-scale-step1: 0.8;
+    --svg-scale-step2: 0.6;
+    --svg-scale-step3: 0.4;
+    --svg-scale-end: 0.2;
+
+    /* SVG Colors */
+    --svg-color-primary: #3b82f6;
+    --svg-color-secondary: #8b5cf6;
+    --svg-color-accent: #06b6d4;
+  }
+
+  @keyframes gradient-xy {
+    0%,
+    100% {
+      background-size: var(--gradient-size-large);
+      background-position: 0% 50%;
+    }
+    50% {
+      background-size: var(--gradient-size-medium);
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes float-1 {
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    33% {
+      transform: translateY(var(--float-1-y-small)) rotate(120deg);
+    }
+    66% {
+      transform: translateY(var(--float-1-y-medium)) rotate(240deg);
+    }
+  }
+
+  @keyframes float-2 {
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(var(--float-2-y)) rotate(180deg);
+    }
+  }
+
+  @keyframes float-3 {
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+      transform: translateY(var(--float-3-y-small)) rotate(90deg);
+    }
+    50% {
+      transform: translateY(var(--float-3-y-large)) rotate(180deg);
+    }
+    75% {
+      transform: translateY(var(--float-3-y-medium)) rotate(270deg);
+    }
+  }
+
+  @keyframes particle-float {
+    0%,
+    100% {
+      transform: translateY(0px) translateX(0px);
+      opacity: var(--particle-opacity-min);
+    }
+    50% {
+      transform: translateY(var(--particle-move-y))
+        translateX(var(--particle-move-x));
+      opacity: var(--particle-opacity-max);
+    }
+  }
+
+  @keyframes svg-float {
+    0% {
+      transform: translateY(0px) translateX(0px) rotate(0deg)
+        scale(var(--svg-scale-start));
+      opacity: var(--svg-opacity-min);
+    }
+    25% {
+      transform: translateY(-30px) translateX(20px) rotate(90deg)
+        scale(var(--svg-scale-step1));
+      opacity: var(--svg-opacity-max);
+    }
+    50% {
+      transform: translateY(-60px) translateX(-10px) rotate(180deg)
+        scale(var(--svg-scale-step2));
+      opacity: var(--svg-opacity-min);
+    }
+    75% {
+      transform: translateY(-20px) translateX(-30px) rotate(270deg)
+        scale(var(--svg-scale-step3));
+      opacity: var(--svg-opacity-max);
+    }
+    100% {
+      transform: translateY(0px) translateX(0px) rotate(360deg)
+        scale(var(--svg-scale-end));
+      opacity: var(--svg-opacity-min);
+    }
+  }
+
+  @keyframes svg-pulse {
+    0% {
+      transform: scale(var(--svg-scale-start)) rotate(0deg);
+      opacity: var(--svg-opacity-min);
+    }
+    25% {
+      transform: scale(var(--svg-scale-step1)) rotate(45deg);
+      opacity: var(--svg-opacity-max);
+    }
+    50% {
+      transform: scale(var(--svg-scale-step2)) rotate(180deg);
+      opacity: var(--svg-opacity-max);
+    }
+    75% {
+      transform: scale(var(--svg-scale-step3)) rotate(270deg);
+      opacity: var(--svg-opacity-min);
+    }
+    100% {
+      transform: scale(var(--svg-scale-end)) rotate(360deg);
+      opacity: var(--svg-opacity-min);
+    }
+  }
+
+  .animate-gradient-xy {
+    animation: gradient-xy var(--gradient-duration) var(--gradient-easing)
+      infinite;
+    background: linear-gradient(
+      -45deg,
+      var(--gradient-color-1),
+      var(--gradient-color-2),
+      var(--gradient-color-3),
+      var(--gradient-color-4)
+    );
+  }
+
+  .animate-float-1 {
+    animation: float-1 var(--float-1-duration) var(--float-easing) infinite;
+  }
+
+  .animate-float-2 {
+    animation: float-2 var(--float-2-duration) var(--float-easing) infinite;
+  }
+
+  .animate-float-3 {
+    animation: float-3 var(--float-3-duration) var(--float-easing) infinite;
+  }
+
+  .particle {
+    position: absolute;
+    background: linear-gradient(
+      45deg,
+      var(--particle-color-1),
+      var(--particle-color-2)
+    );
+    border-radius: 50%;
+    animation: particle-float var(--particle-duration) var(--particle-easing)
+      infinite;
+  }
+
+  .particle-1 {
+    width: var(--particle-size-xl);
+    height: var(--particle-size-xl);
+    top: 20%;
+    left: 10%;
+    animation-delay: var(--delay-0);
+  }
+
+  .particle-2 {
+    width: var(--particle-size-md);
+    height: var(--particle-size-md);
+    top: 60%;
+    left: 80%;
+    animation-delay: var(--delay-2);
+  }
+
+  .particle-3 {
+    width: var(--particle-size-3xl);
+    height: var(--particle-size-3xl);
+    top: 80%;
+    left: 20%;
+    animation-delay: var(--delay-4);
+  }
+
+  .particle-4 {
+    width: var(--particle-size-xs);
+    height: var(--particle-size-xs);
+    top: 30%;
+    left: 70%;
+    animation-delay: var(--delay-6);
+  }
+
+  .particle-5 {
+    width: var(--particle-size-4xl);
+    height: var(--particle-size-4xl);
+    top: 50%;
+    left: 5%;
+    animation-delay: var(--delay-8);
+  }
+
+  .particle-6 {
+    width: var(--particle-size-lg);
+    height: var(--particle-size-lg);
+    top: 10%;
+    left: 60%;
+    animation-delay: var(--delay-10);
+  }
+
+  .particle-7 {
+    width: var(--particle-size-2xl);
+    height: var(--particle-size-2xl);
+    top: 70%;
+    left: 90%;
+    animation-delay: var(--delay-3);
+  }
+
+  .particle-8 {
+    width: var(--particle-size-sm);
+    height: var(--particle-size-sm);
+    top: 40%;
+    left: 40%;
+    animation-delay: var(--delay-7);
+  }
+
+  .svg-element {
+    position: absolute;
+    opacity: var(--svg-opacity-min);
+    pointer-events: none;
+  }
+
+  .svg-float {
+    animation: svg-float var(--svg-float-duration) ease-in-out infinite;
+  }
+
+  .svg-pulse {
+    animation: svg-pulse var(--svg-scale-duration) ease-in-out infinite;
+  }
+
+  .svg-element svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+  }
+
+  .svg-element-1 {
+    width: var(--svg-size-large);
+    height: var(--svg-size-large);
+    top: 15%;
+    left: 15%;
+    animation-delay: var(--delay-0);
+  }
+
+  .svg-element-2 {
+    width: var(--svg-size-medium);
+    height: var(--svg-size-medium);
+    top: 25%;
+    right: 20%;
+    animation-delay: var(--delay-4);
+  }
+
+  .svg-element-3 {
+    width: var(--svg-size-small);
+    height: var(--svg-size-small);
+    bottom: 30%;
+    left: 25%;
+    animation-delay: var(--delay-8);
+  }
+
+  .svg-element-4 {
+    width: var(--svg-size-medium);
+    height: var(--svg-size-medium);
+    bottom: 20%;
+    right: 15%;
+    animation-delay: var(--delay-6);
+  }
+
+  .svg-element-5 {
+    width: var(--svg-size-large);
+    height: var(--svg-size-large);
+    top: 60%;
+    left: 5%;
+    animation-delay: var(--delay-10);
+  }
+
+  .svg-primary {
+    filter: hue-rotate(0deg) saturate(1.2) brightness(1.1);
+  }
+
+  .svg-secondary {
+    filter: hue-rotate(60deg) saturate(1.1) brightness(0.9);
+  }
+
+  .svg-accent {
+    filter: hue-rotate(120deg) saturate(1.3) brightness(1.2);
+  }
+</style>
+
+<!-- Animated Background -->
+<div class="absolute inset-0 -z-10">
+  <!-- Gradient Animation Background -->
+  <div
+    class="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 animate-gradient-xy"
+  >
+  </div>
+
+  <!-- Floating Particles -->
+  <div class="absolute inset-0">
+    <div class="particle particle-1"></div>
+    <div class="particle particle-2"></div>
+    <div class="particle particle-3"></div>
+    <div class="particle particle-4"></div>
+    <div class="particle particle-5"></div>
+    <div class="particle particle-6"></div>
+    <div class="particle particle-7"></div>
+    <div class="particle particle-8"></div>
+  </div>
+
+  <!-- Animated Shapes -->
+  <div
+    class="absolute top-20 left-20 w-32 h-32 bg-blue-200 rounded-full opacity-20 animate-float-1"
+  >
+  </div>
+  <div
+    class="absolute top-40 right-32 w-24 h-24 bg-purple-200 rounded-full opacity-30 animate-float-2"
+  >
+  </div>
+  <div
+    class="absolute bottom-32 left-32 w-40 h-40 bg-indigo-200 rounded-full opacity-15 animate-float-3"
+  >
+  </div>
+  <div
+    class="absolute bottom-20 right-20 w-28 h-28 bg-cyan-200 rounded-full opacity-25 animate-float-1"
+  >
+  </div>
+
+  <!-- Animated SVG Elements -->
+  <div class="svg-element svg-element-1 svg-float svg-primary">
+    <svg viewBox="0 0 91 77" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M89.02 0.354226C90.277 -0.00254177 91.1511 0.750238 90.9721 2.03581L88.3498 20.8553C86.7592 32.2695 76.6211 44.0789 65.5036 47.6342C70.5011 50.5885 74.2069 56.014 74.6257 61.7795L75.5563 74.5978C75.6199 75.4735 74.9704 76.0883 74.106 75.9714L61.4528 74.261C53.6003 73.1992 46.7663 65.89 46.1887 57.9353L45.8425 53.1755C44.8561 53.2332 44.2241 52.522 44.379 51.4104L45.2581 45.0985C45.2448 44.8816 45.274 44.681 45.3409 44.504L47.0013 32.5919C48.6287 20.9128 59.2037 8.81702 70.6216 5.57598L89.02 0.354226Z"
+        fill="url(#paint0_linear_svg1)"></path>
+      <path
+        d="M0.242068 1.76623C0.070701 0.479574 0.949268 -0.267963 2.20407 0.0962709L20.5702 5.4272C31.9687 8.73588 42.4726 20.8943 44.0306 32.5829L45.6202 44.5076C45.6853 44.6843 45.713 44.8839 45.6985 45.0997L46.5411 51.4166C46.6895 52.5297 46.0521 53.2374 45.0652 53.173L44.6917 57.9307C44.0668 65.882 37.1897 73.1505 29.3309 74.1654L16.6678 75.8007C15.8028 75.9123 15.1569 75.2937 15.2256 74.4185L16.2324 61.606C16.6854 55.8432 20.4235 50.4397 25.4384 47.5151C14.3424 43.8936 4.27532 32.0242 2.75255 20.6009L0.242068 1.76623Z"
+        fill="url(#paint1_linear_svg1)"></path>
+      <defs>
+        <linearGradient
+          id="paint0_linear_svg1"
+          x1="0.256538"
+          y1="0.135225"
+          x2="78.9115"
+          y2="78.1669"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset="0.0282776" stop-color="var(--svg-color-primary)"></stop>
+          <stop offset="1" stop-color="var(--svg-color-secondary)"></stop>
+        </linearGradient>
+        <linearGradient
+          id="paint1_linear_svg1"
+          x1="0.107628"
+          y1="0.11974"
+          x2="77.3389"
+          y2="78.7633"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="var(--svg-color-primary)"></stop>
+          <stop offset="1" stop-color="var(--svg-color-secondary)"></stop>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <div class="svg-element svg-element-2 svg-pulse svg-secondary">
+    <svg viewBox="0 0 91 77" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M89.02 0.354226C90.277 -0.00254177 91.1511 0.750238 90.9721 2.03581L88.3498 20.8553C86.7592 32.2695 76.6211 44.0789 65.5036 47.6342C70.5011 50.5885 74.2069 56.014 74.6257 61.7795L75.5563 74.5978C75.6199 75.4735 74.9704 76.0883 74.106 75.9714L61.4528 74.261C53.6003 73.1992 46.7663 65.89 46.1887 57.9353L45.8425 53.1755C44.8561 53.2332 44.2241 52.522 44.379 51.4104L45.2581 45.0985C45.2448 44.8816 45.274 44.681 45.3409 44.504L47.0013 32.5919C48.6287 20.9128 59.2037 8.81702 70.6216 5.57598L89.02 0.354226Z"
+        fill="url(#paint0_linear_svg2)"></path>
+      <path
+        d="M0.242068 1.76623C0.070701 0.479574 0.949268 -0.267963 2.20407 0.0962709L20.5702 5.4272C31.9687 8.73588 42.4726 20.8943 44.0306 32.5829L45.6202 44.5076C45.6853 44.6843 45.713 44.8839 45.6985 45.0997L46.5411 51.4166C46.6895 52.5297 46.0521 53.2374 45.0652 53.173L44.6917 57.9307C44.0668 65.882 37.1897 73.1505 29.3309 74.1654L16.6678 75.8007C15.8028 75.9123 15.1569 75.2937 15.2256 74.4185L16.2324 61.606C16.6854 55.8432 20.4235 50.4397 25.4384 47.5151C14.3424 43.8936 4.27532 32.0242 2.75255 20.6009L0.242068 1.76623Z"
+        fill="url(#paint1_linear_svg2)"></path>
+      <defs>
+        <linearGradient
+          id="paint0_linear_svg2"
+          x1="0.256538"
+          y1="0.135225"
+          x2="78.9115"
+          y2="78.1669"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset="0.0282776" stop-color="var(--svg-color-secondary)"
+          ></stop>
+          <stop offset="1" stop-color="var(--svg-color-accent)"></stop>
+        </linearGradient>
+        <linearGradient
+          id="paint1_linear_svg2"
+          x1="0.107628"
+          y1="0.11974"
+          x2="77.3389"
+          y2="78.7633"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="var(--svg-color-secondary)"></stop>
+          <stop offset="1" stop-color="var(--svg-color-accent)"></stop>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <div class="svg-element svg-element-3 svg-float svg-accent">
+    <svg viewBox="0 0 91 77" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M89.02 0.354226C90.277 -0.00254177 91.1511 0.750238 90.9721 2.03581L88.3498 20.8553C86.7592 32.2695 76.6211 44.0789 65.5036 47.6342C70.5011 50.5885 74.2069 56.014 74.6257 61.7795L75.5563 74.5978C75.6199 75.4735 74.9704 76.0883 74.106 75.9714L61.4528 74.261C53.6003 73.1992 46.7663 65.89 46.1887 57.9353L45.8425 53.1755C44.8561 53.2332 44.2241 52.522 44.379 51.4104L45.2581 45.0985C45.2448 44.8816 45.274 44.681 45.3409 44.504L47.0013 32.5919C48.6287 20.9128 59.2037 8.81702 70.6216 5.57598L89.02 0.354226Z"
+        fill="url(#paint0_linear_svg3)"></path>
+      <path
+        d="M0.242068 1.76623C0.070701 0.479574 0.949268 -0.267963 2.20407 0.0962709L20.5702 5.4272C31.9687 8.73588 42.4726 20.8943 44.0306 32.5829L45.6202 44.5076C45.6853 44.6843 45.713 44.8839 45.6985 45.0997L46.5411 51.4166C46.6895 52.5297 46.0521 53.2374 45.0652 53.173L44.6917 57.9307C44.0668 65.882 37.1897 73.1505 29.3309 74.1654L16.6678 75.8007C15.8028 75.9123 15.1569 75.2937 15.2256 74.4185L16.2324 61.606C16.6854 55.8432 20.4235 50.4397 25.4384 47.5151C14.3424 43.8936 4.27532 32.0242 2.75255 20.6009L0.242068 1.76623Z"
+        fill="url(#paint1_linear_svg3)"></path>
+      <defs>
+        <linearGradient
+          id="paint0_linear_svg3"
+          x1="0.256538"
+          y1="0.135225"
+          x2="78.9115"
+          y2="78.1669"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset="0.0282776" stop-color="var(--svg-color-accent)"></stop>
+          <stop offset="1" stop-color="var(--svg-color-primary)"></stop>
+        </linearGradient>
+        <linearGradient
+          id="paint1_linear_svg3"
+          x1="0.107628"
+          y1="0.11974"
+          x2="77.3389"
+          y2="78.7633"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="var(--svg-color-accent)"></stop>
+          <stop offset="1" stop-color="var(--svg-color-primary)"></stop>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <div class="svg-element svg-element-4 svg-pulse svg-primary">
+    <svg viewBox="0 0 91 77" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M89.02 0.354226C90.277 -0.00254177 91.1511 0.750238 90.9721 2.03581L88.3498 20.8553C86.7592 32.2695 76.6211 44.0789 65.5036 47.6342C70.5011 50.5885 74.2069 56.014 74.6257 61.7795L75.5563 74.5978C75.6199 75.4735 74.9704 76.0883 74.106 75.9714L61.4528 74.261C53.6003 73.1992 46.7663 65.89 46.1887 57.9353L45.8425 53.1755C44.8561 53.2332 44.2241 52.522 44.379 51.4104L45.2581 45.0985C45.2448 44.8816 45.274 44.681 45.3409 44.504L47.0013 32.5919C48.6287 20.9128 59.2037 8.81702 70.6216 5.57598L89.02 0.354226Z"
+        fill="url(#paint0_linear_svg4)"></path>
+      <path
+        d="M0.242068 1.76623C0.070701 0.479574 0.949268 -0.267963 2.20407 0.0962709L20.5702 5.4272C31.9687 8.73588 42.4726 20.8943 44.0306 32.5829L45.6202 44.5076C45.6853 44.6843 45.713 44.8839 45.6985 45.0997L46.5411 51.4166C46.6895 52.5297 46.0521 53.2374 45.0652 53.173L44.6917 57.9307C44.0668 65.882 37.1897 73.1505 29.3309 74.1654L16.6678 75.8007C15.8028 75.9123 15.1569 75.2937 15.2256 74.4185L16.2324 61.606C16.6854 55.8432 20.4235 50.4397 25.4384 47.5151C14.3424 43.8936 4.27532 32.0242 2.75255 20.6009L0.242068 1.76623Z"
+        fill="url(#paint1_linear_svg4)"></path>
+      <defs>
+        <linearGradient
+          id="paint0_linear_svg4"
+          x1="0.256538"
+          y1="0.135225"
+          x2="78.9115"
+          y2="78.1669"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset="0.0282776" stop-color="var(--svg-color-primary)"></stop>
+          <stop offset="1" stop-color="var(--svg-color-accent)"></stop>
+        </linearGradient>
+        <linearGradient
+          id="paint1_linear_svg4"
+          x1="0.107628"
+          y1="0.11974"
+          x2="77.3389"
+          y2="78.7633"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="var(--svg-color-primary)"></stop>
+          <stop offset="1" stop-color="var(--svg-color-accent)"></stop>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <div class="svg-element svg-element-5 svg-float svg-secondary">
+    <svg viewBox="0 0 91 77" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M89.02 0.354226C90.277 -0.00254177 91.1511 0.750238 90.9721 2.03581L88.3498 20.8553C86.7592 32.2695 76.6211 44.0789 65.5036 47.6342C70.5011 50.5885 74.2069 56.014 74.6257 61.7795L75.5563 74.5978C75.6199 75.4735 74.9704 76.0883 74.106 75.9714L61.4528 74.261C53.6003 73.1992 46.7663 65.89 46.1887 57.9353L45.8425 53.1755C44.8561 53.2332 44.2241 52.522 44.379 51.4104L45.2581 45.0985C45.2448 44.8816 45.274 44.681 45.3409 44.504L47.0013 32.5919C48.6287 20.9128 59.2037 8.81702 70.6216 5.57598L89.02 0.354226Z"
+        fill="url(#paint0_linear_svg5)"></path>
+      <path
+        d="M0.242068 1.76623C0.070701 0.479574 0.949268 -0.267963 2.20407 0.0962709L20.5702 5.4272C31.9687 8.73588 42.4726 20.8943 44.0306 32.5829L45.6202 44.5076C45.6853 44.6843 45.713 44.8839 45.6985 45.0997L46.5411 51.4166C46.6895 52.5297 46.0521 53.2374 45.0652 53.173L44.6917 57.9307C44.0668 65.882 37.1897 73.1505 29.3309 74.1654L16.6678 75.8007C15.8028 75.9123 15.1569 75.2937 15.2256 74.4185L16.2324 61.606C16.6854 55.8432 20.4235 50.4397 25.4384 47.5151C14.3424 43.8936 4.27532 32.0242 2.75255 20.6009L0.242068 1.76623Z"
+        fill="url(#paint1_linear_svg5)"></path>
+      <defs>
+        <linearGradient
+          id="paint0_linear_svg5"
+          x1="0.256538"
+          y1="0.135225"
+          x2="78.9115"
+          y2="78.1669"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset="0.0282776" stop-color="var(--svg-color-secondary)"
+          ></stop>
+          <stop offset="1" stop-color="var(--svg-color-primary)"></stop>
+        </linearGradient>
+        <linearGradient
+          id="paint1_linear_svg5"
+          x1="0.107628"
+          y1="0.11974"
+          x2="77.3389"
+          y2="78.7633"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="var(--svg-color-secondary)"></stop>
+          <stop offset="1" stop-color="var(--svg-color-primary)"></stop>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+</div>

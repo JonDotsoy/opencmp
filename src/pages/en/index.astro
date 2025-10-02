@@ -10,6 +10,7 @@ import { IconBrandNpm, IconBrandPnpm, IconCoffee } from "@tabler/icons-react";
 import { InstallationTabs } from "@/components/InstallationTabs";
 import opencmpLogo from "@/assets/opencmp-logo.svg";
 import { getImage } from "astro:assets";
+import PageHero from "@/components/page-hero.astro";
 
 const logo = await getImage({
   src: opencmpLogo,
@@ -110,10 +111,15 @@ const baseUrl = import.meta.env.BASE_URL;
     <CookiesManager client:only="react" />
 
     <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center px-4">
-      <div class="max-w-4xl mx-auto text-center">
+    <section
+      class="min-h-screen flex items-center justify-center px-4 relative overflow-hidden"
+    >
+      <PageHero />
+      <div class="max-w-4xl mx-auto text-center relative z-10">
         <!-- Hero Content -->
-        <div class="mb-12">
+        <div
+          class="mb-12 backdrop-blur-sm bg-white/30 rounded-3xl p-8 border border-white/20 shadow-lg"
+        >
           <h1
             class="text-5xl md:text-7xl font-bold text-slate-800 mb-6 leading-tight"
           >
