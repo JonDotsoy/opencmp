@@ -233,149 +233,150 @@ export function CookieDialogSettings(
         <DialogContent>
           <DialogHeader>
             <DialogTitle>{dialogs.privacyTitle}</DialogTitle>
-            <DialogDescription></DialogDescription>
           </DialogHeader>
-          <div className="mb-2">
-            <p className="mb-4">
-              {dialogs.privacyDescription}{" "}
-              <a href="/legal/cookies" className="text-blue-500">
-                {dialogs.cookiesPolicyLink}
-              </a>
-              .
-            </p>
-            {!allAccepted && (
-              <Button
-                size={"lg"}
-                onClick={() => {
-                  grantedAll();
-                }}
-              >
-                {dialogs.allowAll}
-              </Button>
-            )}
-          </div>
-          <h3 className="text-lg">{dialogs.manageConsent}</h3>
-          <div>
-            <Accordion type="single" collapsible className="w-full">
-              <AccordionItem value="necessary">
-                <AccordionTrigger>
-                  <span className="flex items-center gap-2">
-                    {dialogs.necessary}{" "}
-                    <Badge variant="secondary">{dialogs.alwaysActive}</Badge>
-                    <InfoButton
-                      title={dialogs.infoTitle}
-                      description={dialogs.infoDescription}
-                    />
-                  </span>
-                </AccordionTrigger>
-                <AccordionContent>
-                  <div className="flex flex-col gap-4">
-                    <div>
-                      <h4 className="font-medium mb-2 flex items-center gap-2">
-                        {dialogs.functionality}
-                        <Switch checked={functionalityAccepted} disabled />
-                      </h4>
-                      <p className="text-sm text-gray-600 mb-3">
-                        {dialogs.functionalityDescription}
-                      </p>
+          <div className="max-h-[600px] overflow-auto">
+            <div className="mb-2">
+              <p className="mb-4">
+                {dialogs.privacyDescription}{" "}
+                <a href="/legal/cookies" className="text-blue-500">
+                  {dialogs.cookiesPolicyLink}
+                </a>
+                .
+              </p>
+              {!allAccepted && (
+                <Button
+                  size={"lg"}
+                  onClick={() => {
+                    grantedAll();
+                  }}
+                >
+                  {dialogs.allowAll}
+                </Button>
+              )}
+            </div>
+            <h3 className="text-lg">{dialogs.manageConsent}</h3>
+            <div>
+              <Accordion type="single" collapsible className="w-full">
+                <AccordionItem value="necessary">
+                  <AccordionTrigger>
+                    <span className="flex items-center gap-2">
+                      {dialogs.necessary}{" "}
+                      <Badge variant="secondary">{dialogs.alwaysActive}</Badge>
+                      <InfoButton
+                        title={dialogs.infoTitle}
+                        description={dialogs.infoDescription}
+                      />
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <div className="flex flex-col gap-4">
+                      <div>
+                        <h4 className="font-medium mb-2 flex items-center gap-2">
+                          {dialogs.functionality}
+                          <Switch checked={functionalityAccepted} disabled />
+                        </h4>
+                        <p className="text-sm text-gray-600 mb-3">
+                          {dialogs.functionalityDescription}
+                        </p>
+                      </div>
+                      <div>
+                        <h4 className="font-medium mb-2 flex items-center gap-2">
+                          {dialogs.security}
+                          <Switch checked={securityAccepted} disabled />
+                        </h4>
+                        <p className="text-sm text-gray-600">
+                          {dialogs.securityDescription}
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="font-medium mb-2 flex items-center gap-2">
-                        {dialogs.security}
-                        <Switch checked={securityAccepted} disabled />
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        {dialogs.securityDescription}
-                      </p>
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="statistics">
+                  <AccordionTrigger>
+                    <span>
+                      {dialogs.analytics}{" "}
+                      {statisticsAccepted && (
+                        <Badge variant="secondary">{dialogs.activated}</Badge>
+                      )}
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <div className="flex flex-row justify-between gap-4">
+                      <p>{dialogs.analyticsDescription}</p>
+                      <span>
+                        <Switch
+                          defaultChecked={
+                            preferences.analytics_storage === "granted"
+                          }
+                          onCheckedChange={(checked) =>
+                            preferencesState.set({
+                              ...preferencesState.get(),
+                              analytics_storage: checked ? "granted" : "denied",
+                            })
+                          }
+                        />
+                      </span>
                     </div>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="statistics">
-                <AccordionTrigger>
-                  <span>
-                    {dialogs.analytics}{" "}
-                    {statisticsAccepted && (
-                      <Badge variant="secondary">{dialogs.activated}</Badge>
-                    )}
-                  </span>
-                </AccordionTrigger>
-                <AccordionContent>
-                  <div className="flex flex-row justify-between gap-4">
-                    <p>{dialogs.analyticsDescription}</p>
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="preferences">
+                  <AccordionTrigger>
                     <span>
-                      <Switch
-                        defaultChecked={
-                          preferences.analytics_storage === "granted"
-                        }
-                        onCheckedChange={(checked) =>
-                          preferencesState.set({
-                            ...preferencesState.get(),
-                            analytics_storage: checked ? "granted" : "denied",
-                          })
-                        }
-                      />
+                      {dialogs.personalization}{" "}
+                      {preferencesAccepted && (
+                        <Badge variant="secondary">{dialogs.activated}</Badge>
+                      )}
                     </span>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="preferences">
-                <AccordionTrigger>
-                  <span>
-                    {dialogs.personalization}{" "}
-                    {preferencesAccepted && (
-                      <Badge variant="secondary">{dialogs.activated}</Badge>
-                    )}
-                  </span>
-                </AccordionTrigger>
-                <AccordionContent>
-                  <div className="flex flex-row justify-between gap-4">
-                    <p>{dialogs.personalizationDescription}</p>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <div className="flex flex-row justify-between gap-4">
+                      <p>{dialogs.personalizationDescription}</p>
+                      <span>
+                        <Switch
+                          defaultChecked={
+                            preferences.personalization_storage === "granted"
+                          }
+                          onCheckedChange={(checked) =>
+                            preferencesState.set({
+                              ...preferencesState.get(),
+                              personalization_storage: checked
+                                ? "granted"
+                                : "denied",
+                            })
+                          }
+                        />
+                      </span>
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="marketing">
+                  <AccordionTrigger>
                     <span>
-                      <Switch
-                        defaultChecked={
-                          preferences.personalization_storage === "granted"
-                        }
-                        onCheckedChange={(checked) =>
-                          preferencesState.set({
-                            ...preferencesState.get(),
-                            personalization_storage: checked
-                              ? "granted"
-                              : "denied",
-                          })
-                        }
-                      />
+                      {dialogs.advertising}{" "}
+                      {marketingAccepted && (
+                        <Badge variant="secondary">{dialogs.activated}</Badge>
+                      )}
                     </span>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="marketing">
-                <AccordionTrigger>
-                  <span>
-                    {dialogs.advertising}{" "}
-                    {marketingAccepted && (
-                      <Badge variant="secondary">{dialogs.activated}</Badge>
-                    )}
-                  </span>
-                </AccordionTrigger>
-                <AccordionContent>
-                  <div className="flex flex-row justify-between gap-4">
-                    <p>{dialogs.advertisingDescription}</p>
-                    <span>
-                      <Switch
-                        defaultChecked={preferences.ad_storage === "granted"}
-                        onCheckedChange={(checked) =>
-                          preferencesState.set({
-                            ...preferencesState.get(),
-                            ad_storage: checked ? "granted" : "denied",
-                          })
-                        }
-                      />
-                    </span>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <div className="flex flex-row justify-between gap-4">
+                      <p>{dialogs.advertisingDescription}</p>
+                      <span>
+                        <Switch
+                          defaultChecked={preferences.ad_storage === "granted"}
+                          onCheckedChange={(checked) =>
+                            preferencesState.set({
+                              ...preferencesState.get(),
+                              ad_storage: checked ? "granted" : "denied",
+                            })
+                          }
+                        />
+                      </span>
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </div>
           </div>
           <DialogFooter>
             <Button
