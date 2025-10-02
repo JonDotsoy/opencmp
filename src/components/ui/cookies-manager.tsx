@@ -30,7 +30,6 @@ const gtag = (...args: any[]) => {
   const dataLayer = (window as any)[keyDataLayer] || [];
   (window as any)[keyDataLayer] = dataLayer;
   dataLayer.push(args);
-  console.log("gtag", args);
 };
 
 const dialogs: Record<string, string> = {
